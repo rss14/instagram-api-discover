@@ -2,13 +2,18 @@
 
 require 'vendor/autoload.php';
 require 'InstagramService.php';
-//header("Content-Type: application/json");
+header("Content-Type: application/json");
 
 $instagramService = new InstagramService;
 
 $locationId = $_GET['location_id'] ?? '1027564636';
 
-$response = $instagramService->getLocationData($locationId)['native_location_data'];
+//$response = $instagramService->getLocationData($locationId)['native_location_data'];
+
+$response = $instagramService->getBetano();///$instagramService->getLocations('1');
+
+echo json_encode($response);
+exit;
 
 $data = [
     'location' => [],
